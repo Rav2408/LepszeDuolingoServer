@@ -14,7 +14,7 @@ public class Category implements Identifiable<Long> {
 
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "difficulty_id")
     private Difficulty difficulty;
 

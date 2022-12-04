@@ -2,12 +2,13 @@ package com.example.lepszeduolingoserver.word;
 
 
 import com.example.lepszeduolingoserver.difficulty.Difficulty;
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 import com.example.lepszeduolingoserver.language.Language;
 import jakarta.persistence.*;
 
 @Entity
 @Table
-public class Word{
+public class Word implements Identifiable<Long> {
 
     @Id
     @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)

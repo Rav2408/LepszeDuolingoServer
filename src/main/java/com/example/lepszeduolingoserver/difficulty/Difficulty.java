@@ -15,7 +15,7 @@ public class Difficulty implements Identifiable<Long> {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
     private Long id;
 
-    @NotNull
+
     private String level;
 
     public Difficulty(Long id, String level) {

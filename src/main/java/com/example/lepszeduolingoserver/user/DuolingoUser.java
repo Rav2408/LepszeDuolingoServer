@@ -1,10 +1,11 @@
 package com.example.lepszeduolingoserver.user;
 
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 import jakarta.persistence.*;
 
 @Entity
 @Table
-public class DuolingoUser {
+public class DuolingoUser implements Identifiable<Long> {
     @Id
     @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")

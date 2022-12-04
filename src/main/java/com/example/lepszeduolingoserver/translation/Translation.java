@@ -1,12 +1,13 @@
 package com.example.lepszeduolingoserver.translation;
 
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 import com.example.lepszeduolingoserver.language.Language;
 import com.example.lepszeduolingoserver.word.Word;
 import jakarta.persistence.*;
 
 @Entity
 @Table
-public class Translation {
+public class Translation implements Identifiable<Long> {
     @Id
     @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")

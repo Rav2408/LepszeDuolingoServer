@@ -1,12 +1,13 @@
 package com.example.lepszeduolingoserver.score;
 
 import com.example.lepszeduolingoserver.difficulty.Difficulty;
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 import com.example.lepszeduolingoserver.user.DuolingoUser;
 import jakarta.persistence.*;
 
 @Entity
 @Table
-public class Score {
+public class Score implements Identifiable<Long> {
     @Id
     @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")

@@ -1,6 +1,7 @@
 package com.example.lepszeduolingoserver.question;
 
 import com.example.lepszeduolingoserver.collection.Collection;
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 import com.example.lepszeduolingoserver.translation.Translation;
 import com.example.lepszeduolingoserver.word.Word;
 import jakarta.persistence.*;
@@ -9,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table
-public class Question {
+public class Question implements Identifiable<Long> {
 
     @Id
     @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)

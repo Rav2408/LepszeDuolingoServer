@@ -1,10 +1,6 @@
 package com.example.lepszeduolingoserver.category;
 
-import com.example.lepszeduolingoserver.infrastructure.CycleAvoidingMappingContext;
-import com.example.lepszeduolingoserver.infrastructure.ModifyQueryService;
 import jakarta.validation.Valid;
-import org.mapstruct.factory.Mappers;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,48 +8,31 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/category")
-public class CategoryResource implements ModifyQueryService<Category, CategoryDTO, Long> {
+public class CategoryResource {
 
-    CategoryRepository categoryRepository;
-    CategoryMapper categoryMapper = Mappers.getMapper(CategoryMapper.class);
-
-    public CategoryResource(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
+    CategoryFacade categoryFacade;
+    public CategoryResource(CategoryFacade categoryFacade) {
+        this.categoryFacade = categoryFacade;
     }
 
     @GetMapping
     public List<CategoryDTO> getAllCategory() {
-        return mapToDto(categoryRepository.findAll());
+        return categoryFacade.findAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Category> getCategoryById(@PathVariable Long id) {
-        return categoryRepository.findById(id);
+    public Optional<CategoryDTO> getCategoryById(@PathVariable Long id) {
+        return categoryFacade.findById(id);
     }
 
     @PostMapping
-    public CategoryDTO postCategoryBody(@Valid @RequestBody CategoryDTO category) {
-        categoryRepository.save(mapToEntity(category));
-        return null;
+    public Optional<CategoryDTO> postCategoryBody(@Valid @RequestBody CategoryDTO category) {
+        return categoryFacade.save(category);
     }
 
     @DeleteMapping("/{id}")
     public void deleteCategoryById(@PathVariable Long id) {
-        categoryRepository.deleteById(id);
+        categoryFacade.deleteById(id);
     }
 
-    @Override
-    public Category mapToEntity(CategoryDTO categoryDTO) {
-        return categoryMapper.toEntity(categoryDTO, new CycleAvoidingMappingContext());
-    }
-
-    @Override
-    public CategoryDTO mapToDto(Category entity) {
-        return categoryMapper.toDto(entity,new CycleAvoidingMappingContext());
-    }
-
-    @Override
-    public JpaRepository<Category, Long> getRepo() {
-        return categoryRepository;
-    }
 }

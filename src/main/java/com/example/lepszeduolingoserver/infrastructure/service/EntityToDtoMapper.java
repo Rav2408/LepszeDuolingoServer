@@ -1,4 +1,4 @@
-package com.example.lepszeduolingoserver.infrastructure;
+package com.example.lepszeduolingoserver.infrastructure.service;
 
 import java.util.Collection;
 import java.util.List;
