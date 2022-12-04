@@ -1,26 +1,38 @@
 package com.example.lepszeduolingoserver.word;
 
+import com.example.lepszeduolingoserver.infrastructure.CycleAvoidingMappingContext;
 import com.example.lepszeduolingoserver.infrastructure.service.CrudService;
+import org.mapstruct.factory.Mappers;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class WordService implements CrudService<Word, WordDTO, Long> {
+
+    private WordRepository wordRepository;
+    private WordMapper wordMapper = Mappers.getMapper(WordMapper.class);
+
+    public WordService(WordRepository wordRepository) {
+        this.wordRepository = wordRepository;
+    }
+
     @Override
     public String getEntityName() {
-        return null;
+        return Word.class.getName();
     }
 
     @Override
     public Word mapToEntity(WordDTO wordDTO) {
-        return null;
+        return wordMapper.toEntity(wordDTO, new CycleAvoidingMappingContext());
     }
 
     @Override
     public WordDTO mapToDto(Word entity) {
-        return null;
+        return wordMapper.toDto(entity, new CycleAvoidingMappingContext());
     }
 
     @Override
     public JpaRepository<Word, Long> getRepo() {
-        return null;
+        return wordRepository;
     }
 }

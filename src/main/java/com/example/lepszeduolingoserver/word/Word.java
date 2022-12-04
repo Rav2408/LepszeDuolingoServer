@@ -15,6 +15,8 @@ public class Word implements Identifiable<Long> {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
     private Long id;
 
+    private String text;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "language_id")
     private Language language;
@@ -25,8 +27,9 @@ public class Word implements Identifiable<Long> {
 
     private String imagePath;
 
-    public Word(Long id, Language language, Difficulty difficulty, String imagePath) {
+    public Word(Long id, String text, Language language, Difficulty difficulty, String imagePath) {
         this.id = id;
+        this.text = text;
         this.language = language;
         this.difficulty = difficulty;
         this.imagePath = imagePath;
@@ -41,6 +44,14 @@ public class Word implements Identifiable<Long> {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public Language getLanguage() {
