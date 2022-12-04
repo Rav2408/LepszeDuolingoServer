@@ -1,11 +1,12 @@
 package com.example.lepszeduolingoserver.language;
 
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table
-public class Language {
+public class Language implements Identifiable<Long> {
 
     @Id
     @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
@@ -38,5 +39,13 @@ public class Language {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Language{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

@@ -1,12 +1,12 @@
 package com.example.lepszeduolingoserver.category;
 
 import com.example.lepszeduolingoserver.difficulty.Difficulty;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 import jakarta.persistence.*;
 
 @Entity
 @Table
-public class Category {
+public class Category implements Identifiable<Long> {
     @Id
     @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
@@ -14,8 +14,7 @@ public class Category {
 
     private String name;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name = "difficulty_id")
     private Difficulty difficulty;
 
@@ -50,5 +49,14 @@ public class Category {
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", difficulty=" + difficulty +
+                '}';
     }
 }

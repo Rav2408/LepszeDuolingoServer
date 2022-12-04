@@ -1,11 +1,12 @@
 package com.example.lepszeduolingoserver.collection;
 
 import com.example.lepszeduolingoserver.category.Category;
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 import jakarta.persistence.*;
 
 @Entity
 @Table
-public class Collection {
+public class Collection implements Identifiable<Long> {
 
     @Id
     @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)

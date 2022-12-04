@@ -1,11 +1,14 @@
 package com.example.lepszeduolingoserver.difficulty;
 
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.Objects;
+
 @Entity
 @Table
-public class Difficulty {
+public class Difficulty implements Identifiable<Long> {
 
     @Id
     @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
@@ -37,5 +40,18 @@ public class Difficulty {
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Difficulty)) return false;
+        Difficulty that = (Difficulty) o;
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getLevel(), that.getLevel());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getLevel());
     }
 }
