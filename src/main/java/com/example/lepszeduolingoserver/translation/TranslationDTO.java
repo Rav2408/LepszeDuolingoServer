@@ -1,9 +1,7 @@
 package com.example.lepszeduolingoserver.translation;
 
 import com.example.lepszeduolingoserver.infrastructure.Identifiable;
-import com.example.lepszeduolingoserver.language.Language;
 import com.example.lepszeduolingoserver.language.LanguageDTO;
-import com.example.lepszeduolingoserver.word.Word;
 import com.example.lepszeduolingoserver.word.WordDTO;
 
 public class TranslationDTO implements Identifiable<Long> {

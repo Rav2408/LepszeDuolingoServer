@@ -11,8 +11,8 @@ import jakarta.persistence.*;
 public class Word implements Identifiable<Long> {
 
     @Id
-    @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
+    @SequenceGenerator(name = "word_sequence", sequenceName = "word_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "word_sequence")
     private Long id;
 
     private String text;

@@ -9,8 +9,8 @@ import jakarta.validation.constraints.NotNull;
 public class Language implements Identifiable<Long> {
 
     @Id
-    @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
+    @SequenceGenerator(name = "language_sequence", sequenceName = "language_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "language_sequence")
     private Long id;
 
     @NotNull

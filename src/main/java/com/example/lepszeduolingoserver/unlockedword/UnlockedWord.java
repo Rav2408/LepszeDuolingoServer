@@ -9,8 +9,8 @@ import jakarta.persistence.*;
 @Table
 public class UnlockedWord implements Identifiable<Long> {
     @Id
-    @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
+    @SequenceGenerator(name = "unlocked_word_sequence", sequenceName = "unlocked_word_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "unlocked_word_sequence")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

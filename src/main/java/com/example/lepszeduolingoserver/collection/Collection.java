@@ -9,8 +9,8 @@ import jakarta.persistence.*;
 public class Collection implements Identifiable<Long> {
 
     @Id
-    @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
+    @SequenceGenerator(name = "collection_sequence", sequenceName = "collection_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "collection_sequence")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

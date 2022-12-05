@@ -13,8 +13,8 @@ import java.util.Set;
 public class Question implements Identifiable<Long> {
 
     @Id
-    @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
+    @SequenceGenerator(name = "question_sequence", sequenceName = "question_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "question_sequence")
     private Long id;
 
     private String type;
@@ -24,7 +24,7 @@ public class Question implements Identifiable<Long> {
     private Word word;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "translation_id")
+    @JoinColumn(name = "question_translation_id", referencedColumnName = "id")
     private Set<Translation> translation;
 
     @ManyToOne(fetch = FetchType.LAZY)

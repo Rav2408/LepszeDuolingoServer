@@ -7,8 +7,8 @@ import jakarta.persistence.*;
 @Table
 public class DuolingoUser implements Identifiable<Long> {
     @Id
-    @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
+    @SequenceGenerator(name = "duolingo_user_sequence", sequenceName = "duolingo_user_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "duolingo_user_sequence")
     private Long id;
 
     private String name;

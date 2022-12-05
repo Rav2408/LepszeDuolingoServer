@@ -9,8 +9,8 @@ import jakarta.persistence.*;
 @Table
 public class Score implements Identifiable<Long> {
     @Id
-    @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
+    @SequenceGenerator(name = "score_sequence", sequenceName = "score_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "score_sequence")
     private Long id;
 
     private int bestScore;

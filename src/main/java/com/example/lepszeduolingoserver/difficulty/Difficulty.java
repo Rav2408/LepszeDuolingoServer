@@ -11,8 +11,8 @@ import java.util.Objects;
 public class Difficulty implements Identifiable<Long> {
 
     @Id
-    @SequenceGenerator(name = "example_sequence", sequenceName = "example_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "example_sequence")
+    @SequenceGenerator(name = "difficulty_sequence", sequenceName = "difficulty_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "difficulty_sequence")
     private Long id;
 
 
