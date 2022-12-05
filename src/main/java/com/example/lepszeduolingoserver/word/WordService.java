@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class WordService implements CrudService<Word, WordDTO, Long> {
 
-    private WordRepository wordRepository;
-    private WordMapper wordMapper = Mappers.getMapper(WordMapper.class);
+    private final WordRepository wordRepository;
+    private final WordMapper wordMapper = Mappers.getMapper(WordMapper.class);
 
     public WordService(WordRepository wordRepository) {
         this.wordRepository = wordRepository;

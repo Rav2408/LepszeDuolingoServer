@@ -1,6 +1,8 @@
 package com.example.lepszeduolingoserver.language;
 
-public class LanguageDTO {
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
+
+public class LanguageDTO implements Identifiable<Long> {
 
     private Long id;
 

@@ -1,8 +1,9 @@
 package com.example.lepszeduolingoserver.difficulty;
 
+import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 import jakarta.validation.constraints.NotNull;
 
-public class DifficultyDTO {
+public class DifficultyDTO implements Identifiable<Long> {
 
     private Long id;
 
