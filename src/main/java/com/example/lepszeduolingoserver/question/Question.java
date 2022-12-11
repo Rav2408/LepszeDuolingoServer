@@ -6,8 +6,6 @@ import com.example.lepszeduolingoserver.translation.Translation;
 import com.example.lepszeduolingoserver.word.Word;
 import jakarta.persistence.*;
 
-import java.util.Set;
-
 @Entity
 @Table
 public class Question implements Identifiable<Long> {
@@ -19,19 +17,19 @@ public class Question implements Identifiable<Long> {
 
     private String type;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "word_id")
     private Word word;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "question_translation_id", referencedColumnName = "id")
-    private Set<Translation> translation;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "translation_id")
+    private Translation translation;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "collection_id")
     private Collection collection;
 
-    public Question(Long id, String type, Word word, Set<Translation> translation, Collection collection) {
+    public Question(Long id, String type, Word word, Translation translation, Collection collection) {
         this.id = id;
         this.type = type;
         this.word = word;
@@ -67,11 +65,11 @@ public class Question implements Identifiable<Long> {
         this.word = word;
     }
 
-    public Set<Translation> getTranslation() {
+    public Translation getTranslation() {
         return translation;
     }
 
-    public void setTranslation(Set<Translation> translation) {
+    public void setTranslation(Translation translation) {
         this.translation = translation;
     }
 

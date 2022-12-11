@@ -15,11 +15,11 @@ public class Score implements Identifiable<Long> {
 
     private int bestScore;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "duolingouser_id")
     private DuolingoUser duolingoUser;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "difficulty_id")
     private Difficulty difficulty;
 

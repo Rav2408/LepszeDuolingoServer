@@ -13,11 +13,11 @@ public class UnlockedWord implements Identifiable<Long> {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "unlocked_word_sequence")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "word_id")
     private Word word;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "duolingouser_id")
     private DuolingoUser duolingoUser;
 

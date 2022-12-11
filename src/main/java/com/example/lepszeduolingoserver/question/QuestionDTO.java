@@ -1,13 +1,9 @@
 package com.example.lepszeduolingoserver.question;
 
-import com.example.lepszeduolingoserver.collection.Collection;
 import com.example.lepszeduolingoserver.collection.CollectionDTO;
 import com.example.lepszeduolingoserver.infrastructure.Identifiable;
-import com.example.lepszeduolingoserver.translation.Translation;
 import com.example.lepszeduolingoserver.translation.TranslationDTO;
 import com.example.lepszeduolingoserver.word.Word;
-
-import java.util.Set;
 
 public class QuestionDTO implements Identifiable<Long> {
 
@@ -17,7 +13,7 @@ public class QuestionDTO implements Identifiable<Long> {
 
     private Word word;
 
-    private Set<TranslationDTO> translation;
+    private TranslationDTO translation;
 
     private CollectionDTO collection;
 
@@ -47,11 +43,11 @@ public class QuestionDTO implements Identifiable<Long> {
         this.word = word;
     }
 
-    public Set<TranslationDTO> getTranslation() {
+    public TranslationDTO getTranslation() {
         return translation;
     }
 
-    public void setTranslation(Set<TranslationDTO> translation) {
+    public void setTranslation(TranslationDTO translation) {
         this.translation = translation;
     }
 

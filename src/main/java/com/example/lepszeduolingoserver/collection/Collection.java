@@ -13,7 +13,7 @@ public class Collection implements Identifiable<Long> {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "collection_sequence")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
 

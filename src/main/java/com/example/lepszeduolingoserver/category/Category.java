@@ -14,7 +14,7 @@ public class Category implements Identifiable<Long> {
 
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "difficulty_id")
     private Difficulty difficulty;
 
