@@ -21,4 +21,6 @@ public class TranslationResource  implements SimpleResource<Translation, Transla
     public CrudService<Translation, TranslationDTO, Long> getService() {
         return translationService;
     }
+
+
 }

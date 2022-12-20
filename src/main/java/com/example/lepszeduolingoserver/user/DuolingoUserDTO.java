@@ -3,11 +3,13 @@ package com.example.lepszeduolingoserver.user;
 import com.example.lepszeduolingoserver.infrastructure.Identifiable;
 
 public class DuolingoUserDTO implements Identifiable<Long> {
+
     private Long id;
-
     private String name;
-
+    private String email;
     private String role;
+    private byte[] salt;
+    private byte[] hash;
 
     @Override
     public Long getId() {
@@ -35,12 +37,27 @@ public class DuolingoUserDTO implements Identifiable<Long> {
         this.role = role;
     }
 
-    @Override
-    public String toString() {
-        return "DuolingoUserDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", role='" + role + '\'' +
-                '}';
+    public String getEmail() {
+        return email;
+    }
+
+    public byte[] getSalt() {
+        return salt;
+    }
+
+    public void setSalt(byte[] salt) {
+        this.salt = salt;
+    }
+
+    public byte[] getHash() {
+        return hash;
+    }
+
+    public void setHash(byte[] hash) {
+        this.hash = hash;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

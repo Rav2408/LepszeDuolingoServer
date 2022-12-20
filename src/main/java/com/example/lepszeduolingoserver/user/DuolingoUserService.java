@@ -6,6 +6,8 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class DuolingoUserService implements CrudService<DuolingoUser, DuolingoUserDTO, Long> {
 
@@ -35,4 +37,18 @@ public class DuolingoUserService implements CrudService<DuolingoUser, DuolingoUs
     public JpaRepository<DuolingoUser, Long> getRepo() {
         return duolingoUserRepository;
     }
+
+    public boolean existsByEmail(String email) {
+        return duolingoUserRepository.existsByEmail(email);
+    }
+
+    public byte[] findUserSaltByEmail(String email) {
+        Optional<DuolingoUser> duolingoUser = duolingoUserRepository.findByEmail(email);
+
+        if(duolingoUser.isPresent()){
+            return duolingoUser.get().getSalt();
+        }
+        return null;
+    }
+
 }
