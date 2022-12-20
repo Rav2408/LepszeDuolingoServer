@@ -43,9 +43,14 @@ public class DuolingoUserResource{
         return duolingoUserService.findUserSaltByEmail(email);
     }
 
+    @PostMapping("/auth")
+    public DuolingoUserDTO postDuolingoUserBody(@RequestParam String email, @RequestParam String hash) {
+        return duolingoUserService.auth(email, hash);
+    }
+
     @PostMapping
-    public DuolingoUser postDuolingoUserBody(@Valid @RequestBody DuolingoUser user) {
-        return duolingoUserService.save(user);
+    public DuolingoUserDTO postDuolingoUserBody(@Valid @RequestBody DuolingoUser user) {
+        return duolingoUserService.mapToDto(duolingoUserService.save(user));
     }
 
     @DeleteMapping("/{id}")
