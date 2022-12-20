@@ -51,4 +51,8 @@ public class DuolingoUserService implements CrudService<DuolingoUser, DuolingoUs
         return null;
     }
 
+    public DuolingoUserDTO getUserByEmail(String email) {
+        return duolingoUserRepository.findByEmail(email).map(this::mapToDto)
+                .orElseThrow(()-> new IllegalStateException(String.format("User with email %s does not exists",email)));
+    }
 }

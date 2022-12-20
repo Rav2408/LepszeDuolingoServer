@@ -28,6 +28,11 @@ public class DuolingoUserResource{
         return duolingoUserService.findById(id);
     }
 
+    @GetMapping("/get/{email}")
+    public DuolingoUserDTO getUserByEmail(@PathVariable String email) {
+        return duolingoUserService.getUserByEmail(email);
+    }
+
     @GetMapping
     public boolean isUserExists(@RequestParam String email) {
         return duolingoUserService.existsByEmail(email);
