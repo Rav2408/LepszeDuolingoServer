@@ -34,7 +34,7 @@ public class DuolingoUserResource{
     }
 
     @GetMapping("/salt")
-    public byte[] findUserSaltByEmail(@RequestParam String email) {
+    public String findUserSaltByEmail(@RequestParam String email) {
         return duolingoUserService.findUserSaltByEmail(email);
     }
 

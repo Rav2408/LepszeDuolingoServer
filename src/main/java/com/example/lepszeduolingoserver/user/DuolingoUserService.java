@@ -42,7 +42,7 @@ public class DuolingoUserService implements CrudService<DuolingoUser, DuolingoUs
         return duolingoUserRepository.existsByEmail(email);
     }
 
-    public byte[] findUserSaltByEmail(String email) {
+    public String findUserSaltByEmail(String email) {
         Optional<DuolingoUser> duolingoUser = duolingoUserRepository.findByEmail(email);
 
         if(duolingoUser.isPresent()){

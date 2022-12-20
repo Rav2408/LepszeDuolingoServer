@@ -8,8 +8,8 @@ public class DuolingoUserDTO implements Identifiable<Long> {
     private String name;
     private String email;
     private String role;
-    private byte[] salt;
-    private byte[] hash;
+    private String salt;
+    private String hash;
 
     @Override
     public Long getId() {
@@ -41,23 +41,23 @@ public class DuolingoUserDTO implements Identifiable<Long> {
         return email;
     }
 
-    public byte[] getSalt() {
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSalt() {
         return salt;
     }
 
-    public void setSalt(byte[] salt) {
+    public void setSalt(String salt) {
         this.salt = salt;
     }
 
-    public byte[] getHash() {
+    public String getHash() {
         return hash;
     }
 
-    public void setHash(byte[] hash) {
+    public void setHash(String hash) {
         this.hash = hash;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }

@@ -16,12 +16,11 @@ public class DuolingoUser implements Identifiable<Long> {
     private String email;
     private String role;
 
-    private byte[] salt;
+    private String salt;
 
-    private byte[] hash;
+    private String hash;
 
-    public DuolingoUser(Long id, String name, String email,
-                        String role, byte[] salt, byte[] hash) {
+    public DuolingoUser(Long id, String name, String email, String role, String salt, String hash) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -65,19 +64,19 @@ public class DuolingoUser implements Identifiable<Long> {
         this.email = email;
     }
 
-    public byte[] getSalt() {
+    public String getSalt() {
         return salt;
     }
 
-    public void setSalt(byte[] salt) {
+    public void setSalt(String salt) {
         this.salt = salt;
     }
 
-    public byte[] getHash() {
+    public String getHash() {
         return hash;
     }
 
-    public void setHash(byte[] hash) {
+    public void setHash(String hash) {
         this.hash = hash;
     }
 }
