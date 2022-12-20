@@ -60,4 +60,16 @@ public class DuolingoUserDTO implements Identifiable<Long> {
     public void setHash(String hash) {
         this.hash = hash;
     }
+
+    @Override
+    public String toString() {
+        return "DuolingoUserDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", role='" + role + '\'' +
+                ", salt='" + salt + '\'' +
+                ", hash='" + hash + '\'' +
+                '}';
+    }
 }
