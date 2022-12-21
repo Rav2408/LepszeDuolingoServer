@@ -60,7 +60,10 @@ public class DuolingoUserService implements CrudService<DuolingoUser, DuolingoUs
         DuolingoUserDTO duolingoUserDTO = getUserByEmail(email);
         if(duolingoUserDTO!=null && duolingoUserDTO.getHash().equals(hash)){
             return duolingoUserDTO;
+        }else{
+            System.out.println(duolingoUserDTO.getHash() + " | " + hash);
         }
+
         return null;
     }
 }

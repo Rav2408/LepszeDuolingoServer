@@ -44,8 +44,8 @@ public class DuolingoUserResource{
     }
 
     @PostMapping("/auth")
-    public DuolingoUserDTO postDuolingoUserBody(@RequestParam String email, @RequestParam String hash) {
-        return duolingoUserService.auth(email, hash);
+    public DuolingoUserDTO postDuolingoUserBody(@RequestBody AuthCredentials authCredentials) {
+        return duolingoUserService.auth(authCredentials.email(), authCredentials.hash());
     }
 
     @PostMapping
