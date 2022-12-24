@@ -64,6 +64,6 @@ public class DuolingoUserService implements CrudService<DuolingoUser, DuolingoUs
             System.out.println(duolingoUserDTO.getHash() + " | " + hash);
         }
 
-        return null;
+        return new DuolingoUserDTO();
     }
 }
