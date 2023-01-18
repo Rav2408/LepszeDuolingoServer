@@ -6,6 +6,8 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UnlockedWordService implements CrudService<UnlockedWord, UnlockedWordDTO, Long> {
 
@@ -34,5 +36,9 @@ public class UnlockedWordService implements CrudService<UnlockedWord, UnlockedWo
     @Override
     public JpaRepository<UnlockedWord, Long> getRepo() {
         return unlockedWordRepository;
+    }
+
+    public List<UnlockedWordDTO> getUnlockedWordsForUser(Long id) {
+        return mapToDto(unlockedWordRepository.findUnlockedWordsByDuolingoUserId(id));
     }
 }
